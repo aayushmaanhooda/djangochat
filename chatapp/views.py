@@ -40,3 +40,10 @@ def getMessages(request, room):
 
     messages = Message.objects.filter(room=room_details.id)
     return JsonResponse({"messages":list(messages.values())})
+
+def available(request):
+    roomnaam = Room.objects.all()
+    print(roomnaam)
+    return render (request ,'available.html',{
+        'roomnaam': roomnaam
+    })
